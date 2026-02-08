@@ -2,191 +2,152 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Propose Day ❤️</title>
+<title>Happy Propose Day ❤️</title>
+
 <style>
+*{box-sizing:border-box;}
 body{
   margin:0;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
+  height:100vh;
+  background:linear-gradient(120deg,#120018,#2b0030,#000);
+  font-family:'Segoe UI',Arial;
   color:white;
   display:flex;
   justify-content:center;
   align-items:center;
-  height:100vh;
+  overflow:hidden;
 }
-.container{
-  text-align:center;
-  max-width:92%;
+
+/* floating hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:22px;
+  animation:float 9s linear infinite;
+  color:#ff4d6d;
 }
-.step{ display:none; }
-.step.active{ display:block; }
+@keyframes float{
+  0%{transform:translateY(0);opacity:1;}
+  100%{transform:translateY(-120vh);opacity:0;}
+}
+
+.container{ text-align:center; max-width:95%; }
+
+.step{display:none;}
+.step.active{
+  display:block;
+  animation:fade 1.2s ease;
+}
+@keyframes fade{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
 button{
-  padding:12px 34px;
+  margin-top:30px;
+  padding:14px 42px;
   font-size:16px;
   border:none;
-  border-radius:30px;
-  background:linear-gradient(45deg,#ff2f6d,#ff6fa3);
+  border-radius:50px;
+  background:linear-gradient(45deg,#ff0844,#ffb199);
   color:white;
   cursor:pointer;
-  margin-top:28px;
 }
-button:hover{ opacity:.9; }
-img{
-  max-width:92%;
-  border-radius:18px;
-  margin-top:22px;
-  box-shadow: 0 10px 30px rgba(255,105,135,.25);
-}
+
 input{
   padding:12px;
   font-size:16px;
-  border-radius:10px;
+  border-radius:12px;
   border:none;
 }
-.fade{ animation:fade 1s ease; }
-@keyframes fade{
-  from{opacity:0; transform:scale(.98);}
-  to{opacity:1; transform:scale(1);}
+
+img{
+  max-width:95%;
+  border-radius:22px;
+  margin-top:20px;
+  box-shadow:0 15px 45px rgba(255,0,80,.6);
 }
-.small{ opacity:.85; }
+.small{opacity:.85;}
 </style>
 </head>
 
 <body>
+
+<!-- hearts -->
+<span class="heart" style="left:5%">❤️</span>
+<span class="heart" style="left:20%">💖</span>
+<span class="heart" style="left:40%">💍</span>
+<span class="heart" style="left:60%">💕</span>
+<span class="heart" style="left:80%">🌹</span>
+
 <div class="container">
 
-<!-- 1 PASSWORD -->
-<div class="step active fade">
-  <h2>🔒 Enter Password</h2>
-  <input type="password" id="pass" placeholder="Password">
+<!-- 1 -->
+<div class="step active">
+  <h1>🌹 Propose Day Special 🌹</h1>
+  <p class="small">Made with love 💖</p>
+  <p class="small">Only for someone special 💍</p>
+  <input type="password" id="pass" placeholder="Enter password">
   <br>
-  <button onclick="checkPass()">Unlock 💖</button>
+  <button onclick="checkPass()">Unlock Love ❤️</button>
 </div>
 
 <!-- 2 -->
-<div class="step fade">
-  <h2>Hey ❤️</h2>
-  <p class="small">I made something special… just for you ✨</p>
-  <button onclick="nextStep()">Next ➜</button>
+<div class="step">
+  <p>Hey 😊</p>
+  <p>This is not random… 💫</p>
+  <button onclick="nextStep()">Next ✨</button>
 </div>
 
 <!-- 3 -->
-<div class="step fade">
-  <p>You make ordinary moments feel extraordinary 💫</p>
-  <button onclick="nextStep()">Next ➜</button>
+<div class="step">
+  <p>I made this just for you 💖</p>
+  <button onclick="nextStep()">Next ✨</button>
 </div>
 
 <!-- 4 -->
-<div class="step fade">
-  <p>Every smile of yours stays with me 😊</p>
-  <button onclick="nextStep()">Next ➜</button>
+<div class="step">
+  <p>Your smile 😍</p>
+  <p>Means more than you know ❤️</p>
+  <button onclick="nextStep()">Next ✨</button>
 </div>
 
 <!-- 5 -->
-<div class="step fade">
-  <p>Before anything else… listen to this 🎵</p>
+<div class="step">
+  <p>Let the music say it 🎶💓</p>
   <audio controls>
     <source src="music.mpeg" type="audio/mpeg">
   </audio>
   <br>
-  <button onclick="nextStep()">Next ➜</button>
+  <button onclick="nextStep()">Next ✨</button>
 </div>
 
 <!-- 6 -->
-<div class="step fade">
-  <p>Now let me take you through some memories 📸</p>
-  <button onclick="nextStep()">Next ➜</button>
+<div class="step">
+  <p>Some moments I want to keep forever 📸💖</p>
+  <button onclick="nextStep()">Next ✨</button>
 </div>
 
-<!-- 7 IMAGE 1 -->
-<div class="step fade">
-  <img src="img1.jpeg">
-  <p class="small">This moment… ❤️</p>
-  <button onclick="nextStep()">Next ➜</button>
+<!-- images -->
+<div class="step"><img src="img1.jpeg"><p>That smile 😍</p><button onclick="nextStep()">Next ✨</button></div>
+<div class="step"><img src="img2.jpeg"><p>That vibe 💫</p><button onclick="nextStep()">Next ✨</button></div>
+<div class="step"><img src="img3.jpeg"><p>That feeling 💓</p><button onclick="nextStep()">Next ✨</button></div>
+<div class="step"><img src="img4.jpeg"><p>That bond ❤️</p><button onclick="nextStep()">Next ✨</button></div>
+<div class="step"><img src="img5.jpeg"><p>That happiness 🌸</p><button onclick="nextStep()">Next ✨</button></div>
+<div class="step"><img src="img6.jpeg"><p>That connection 💞</p><button onclick="nextStep()">Next ✨</button></div>
+<div class="step"><img src="img7.jpeg"><p>My favorite 💍❤️</p><button onclick="nextStep()">Next ✨</button></div>
+
+<!-- proposal -->
+<div class="step">
+  <p>I don’t want perfect 🌍</p>
+  <p>I just want you 💖</p>
+  <button onclick="nextStep()">Next ✨</button>
 </div>
 
-<!-- 8 IMAGE 2 -->
-<div class="step fade">
-  <img src="img2.jpeg">
-  <p class="small">Still makes me smile 😊</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 9 IMAGE 3 -->
-<div class="step fade">
-  <img src="img3.jpeg">
-  <p class="small">Every memory feels warm ✨</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 10 IMAGE 4 -->
-<div class="step fade">
-  <img src="img4.jpeg">
-  <p class="small">Time pauses here ⏳</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 11 IMAGE 5 -->
-<div class="step fade">
-  <img src="img5.jpeg">
-  <p class="small">You look amazing 🌸</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 12 IMAGE 6 -->
-<div class="step fade">
-  <img src="img6.jpeg">
-  <p class="small">Moments I cherish 💗</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 13 IMAGE 7 -->
-<div class="step fade">
-  <img src="img7.jpeg">
-  <p class="small">And there’s so much more… 💫</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 14 -->
-<div class="step fade">
-  <p>On this Propose Day 💖</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 15 -->
-<div class="step fade">
-  <p>I want to be the reason behind your smiles 😊</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 16 -->
-<div class="step fade">
-  <p>The one who stands by you, always 🤝</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 17 -->
-<div class="step fade">
-  <p>Through laughs, dreams, and everything ahead ✨</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 18 -->
-<div class="step fade">
-  <p>So here’s my heart, honestly ❤️</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 19 -->
-<div class="step fade">
-  <p>With a simple question… 💌</p>
-  <button onclick="nextStep()">Next ➜</button>
-</div>
-
-<!-- 20 FINAL -->
-<div class="step fade">
-  <h1>Will You Be Mine? ❤️</h1>
-  <p class="small">Happy Propose Day 💞</p>
+<div class="step">
+  <h1>Will You Be Mine? 💍❤️</h1>
+  <p>I Love You 😍💖</p>
+  <p>— From Kaif ❤️</p>
 </div>
 
 </div>
@@ -202,13 +163,13 @@ function nextStep(){
 }
 
 function checkPass(){
-  const p = document.getElementById('pass').value;
-  if(p === "R4AXZ"){
+  if(document.getElementById('pass').value === "kaif"){
     nextStep();
   }else{
-    alert("Wrong Password");
+    alert("Wrong Password ❌");
   }
 }
 </script>
+
 </body>
 </html>
