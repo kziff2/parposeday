@@ -2,264 +2,161 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Purpose Day Cinematic Page</title>
+<title>Propose Day</title>
 <style>
-  body {
-    margin:0;
-    font-family: 'Dancing Script', cursive;
-    background: linear-gradient(to right, #ffefd5, #ffe4b5);
-    color:#333;
-    text-align:center;
-    overflow-x:hidden;
-  }
-
-  button {
-    padding:10px 25px;
-    font-size:18px;
-    cursor:pointer;
-    border:none;
-    border-radius:10px;
-    margin-top:20px;
-    background:#ff7f50;
-    color:#fff;
-    transition: transform 0.3s, background 0.3s;
-  }
-  button:hover {
-    transform:scale(1.1);
-    background:#ff4500;
-  }
-
-  .step {
-    display:none;
-    padding:50px 20px;
-    min-height:100vh;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    position:relative;
-  }
-  .active {
-    display:flex;
-    animation: fadeIn 1.5s ease forwards;
-  }
-  @keyframes fadeIn {
-    from {opacity:0; transform:scale(0.95);}
-    to {opacity:1; transform:scale(1);}
-  }
-
-  .type-text {
-    font-size:2rem;
-    overflow:hidden;
-    white-space:nowrap;
-    border-right:4px solid #333;
-  }
-
-  .gallery-img {
-    width:80%;
-    max-width:600px;
-    margin:20px auto;
-    display:none;
-    opacity:0;
-    transition:opacity 1s ease, transform 1s ease;
-    border-radius:15px;
-    box-shadow:0 0 15px rgba(255,127,80,0.6);
-  }
-  .gallery-img.active {
-    display:block;
-    opacity:1;
-    transform:scale(1.05);
-  }
-
-  .icon {
-    position:absolute;
-    font-size:24px;
-    animation: floatUp 8s linear infinite;
-  }
-  @keyframes floatUp {
-    0% {transform: translateY(100vh) rotate(0deg);}
-    100% {transform: translateY(-50vh) rotate(360deg);}
-  }
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:black;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+.container{
+  text-align:center;
+  max-width:90%;
+}
+.step{
+  display:none;
+}
+.step.active{
+  display:block;
+}
+button{
+  padding:12px 25px;
+  font-size:16px;
+  border:none;
+  border-radius:25px;
+  background:#ff3366;
+  color:white;
+  cursor:pointer;
+  margin-top:20px;
+}
+img{
+  max-width:90%;
+  border-radius:15px;
+  margin-top:15px;
+}
+input{
+  padding:10px;
+  font-size:16px;
+  border-radius:8px;
+  border:none;
+}
 </style>
 </head>
+
 <body>
 
-<audio id="bgMusic" src="music.mpeg" preload="auto"></audio>
+<div class="container">
 
-<!-- Step 1: Password -->
-<div class="step active" id="step1">
-  <h1>Enter Password</h1>
-  <input type="password" id="passwordInput" placeholder="Enter Password" style="padding:10px; font-size:18px; border-radius:8px; border:none;">
-  <button onclick="checkPassword()">Submit</button>
+<!-- STEP 1 PASSWORD -->
+<div class="step active">
+  <h2>Enter Password</h2>
+  <input type="password" id="pass">
+  <br>
+  <button onclick="checkPass()">Unlock</button>
 </div>
 
-<!-- Step 2: Welcome -->
-<div class="step" id="step2">
-  <h1 class="type-text" data-text="Welcome to Purpose Day Celebration! 🎯"></h1>
-  <button onclick="nextStep(3)">Next</button>
+<!-- STEP 2 -->
+<div class="step">
+  <h2>Hey ❤️</h2>
+  <p>I made something special for you</p>
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 3: Music Intro -->
-<div class="step" id="step3">
-  <h1 class="type-text" data-text="Let's enjoy this song made just for you! 💖"></h1>
-  <button onclick="playMusic()">Play Music</button>
-  <button onclick="pauseMusic()">Pause Music</button>
-  <button onclick="nextStep(4)">Next</button>
+<!-- STEP 3 -->
+<div class="step">
+  <h2>Just One Click Away…</h2>
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 4: Photos Screen 1 -->
-<div class="step" id="step4">
-  <h1>Photos</h1>
-  <img src="IMG1.JPG" class="gallery-img active">
-  <img src="IMG2.JPG" class="gallery-img">
-  <img src="IMG3.JPG" class="gallery-img">
-  <button onclick="nextStep(5)">Next</button>
+<!-- STEP 4 MUSIC -->
+<div class="step">
+  <h2>Play This Song 🎵</h2>
+  <audio controls>
+    <source src="music.mpeg" type="audio/mpeg">
+  </audio>
+  <br>
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 5: Typing Wish 1 -->
-<div class="step" id="step5">
-  <h1 class="type-text" data-text="May your goals always shine bright! ✨"></h1>
-  <button onclick="nextStep(6)">Next</button>
+<!-- STEP 5 -->
+<div class="step">
+  <h2>Memories Begin 📸</h2>
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 6: Interactive Click -->
-<div class="step" id="step6">
-  <h1>Click the Icon 🎯</h1>
-  <button onclick="showIcons()">Click Me!</button>
-  <button onclick="nextStep(7)">Next</button>
+<!-- STEP 6 -->
+<div class="step">
+  <img src="img1.jpeg">
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 7: Quote 1 -->
-<div class="step" id="step7">
-  <h1 class="type-text" data-text='"The purpose of life is a life of purpose." 🌟'></h1>
-  <button onclick="nextStep(8)">Next</button>
+<!-- STEP 7 -->
+<div class="step">
+  <img src="img2.jpeg">
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 8: Photos Screen 2 -->
-<div class="step" id="step8">
-  <h1>More Memories 📸</h1>
-  <img src="IMG4.JPG" class="gallery-img active">
-  <img src="IMG5.JPG" class="gallery-img">
-  <img src="IMG6.JPG" class="gallery-img">
-  <img src="IMG7.JPG" class="gallery-img">
-  <button onclick="nextStep(9)">Next</button>
+<!-- STEP 8 -->
+<div class="step">
+  <img src="img3.jpeg">
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 9: Typing Wish 2 -->
-<div class="step" id="step9">
-  <h1 class="type-text" data-text="Keep chasing your dreams, always! 🚀"></h1>
-  <button onclick="nextStep(10)">Next</button>
+<!-- STEP 9 -->
+<div class="step">
+  <img src="img4.jpeg">
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 10: Interactive Click 2 -->
-<div class="step" id="step10">
-  <h1>Click the Star ⭐</h1>
-  <button onclick="showIcons()">Surprise!</button>
-  <button onclick="nextStep(11)">Next</button>
+<!-- STEP 10 -->
+<div class="step">
+  <img src="img5.jpeg">
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 11: Quote 2 -->
-<div class="step" id="step11">
-  <h1 class="type-text" data-text='"Small steps every day lead to big achievements." 🎯'></h1>
-  <button onclick="nextStep(12)">Next</button>
+<!-- STEP 11 -->
+<div class="step">
+  <img src="img6.jpeg">
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 12: Ending Message -->
-<div class="step" id="step12">
-  <h1 class="type-text" data-text="Wishing You a Very Happy Purpose Day! 🌟💖"></h1>
-  <button onclick="nextStep(13)">Next</button>
+<!-- STEP 12 -->
+<div class="step">
+  <img src="img7.jpeg">
+  <button onclick="nextStep()">Next</button>
 </div>
 
-<!-- Step 13: Replay / Outro -->
-<div class="step" id="step13">
-  <h1>Thank You for Visiting! 💖</h1>
-  <button onclick="location.reload()">Replay</button>
+<!-- FINAL STEP -->
+<div class="step">
+  <h1>Will You Be Mine? ❤️</h1>
 </div>
 
-<div id="iconsContainer"></div>
+</div>
 
 <script>
-let currentStep = 1;
+let current = 0;
+const steps = document.querySelectorAll('.step');
 
-// Password check
-function checkPassword() {
-  let input = document.getElementById("passwordInput").value;
-  if(input === "R4AXZ") {
-    nextStep(2);
-  } else {
-    alert("Wrong Password! Try again.");
+function nextStep(){
+  steps[current].classList.remove('active');
+  current++;
+  steps[current].classList.add('active');
+}
+
+function checkPass(){
+  const p = document.getElementById('pass').value;
+  if(p === "R4AXZ"){
+    nextStep();
+  }else{
+    alert("Wrong Password");
   }
 }
-
-// Next step
-function nextStep(step) {
-  document.getElementById(`step${currentStep}`).classList.remove("active");
-  document.getElementById(`step${step}`).classList.add("active");
-  currentStep = step;
-}
-
-// Music
-function playMusic() { document.getElementById("bgMusic").play(); }
-function pauseMusic() { document.getElementById("bgMusic").pause(); }
-
-// Show floating icons (like confetti)
-function showIcons() {
-  for(let i=0;i<30;i++){
-    let icon = document.createElement("div");
-    icon.className = "icon";
-    icon.style.left = Math.random()*100 + "vw";
-    icon.style.fontSize = (15+Math.random()*20)+"px";
-    icon.innerText = ["🎯","⭐","✨"][Math.floor(Math.random()*3)];
-    document.body.appendChild(icon);
-    setTimeout(()=>{icon.remove();},8000);
-  }
-}
-
-// Gallery slideshow for steps 4 & 8
-function startGallery(step) {
-  const images = document.querySelectorAll(`#step${step} .gallery-img`);
-  let index = 0;
-  setInterval(()=>{
-    images[index].classList.remove("active");
-    index = (index+1)%images.length;
-    images[index].classList.add("active");
-  },3000);
-}
-startGallery(4);
-startGallery(8);
-
-// Floating background icons
-function createFloatingBackground() {
-  for(let i=0;i<15;i++){
-    let icon = document.createElement("div");
-    icon.className = "icon";
-    icon.style.left = Math.random()*100 + "vw";
-    icon.style.fontSize = (15+Math.random()*20)+"px";
-    icon.innerText = ["🎯","✨","⭐"][Math.floor(Math.random()*3)];
-    document.body.appendChild(icon);
-  }
-}
-createFloatingBackground();
-
-// Typing effect manual
-function startTyping(stepEl) {
-  const textEl = stepEl.querySelector(".type-text");
-  if(!textEl) return;
-  const text = textEl.getAttribute("data-text");
-  textEl.innerHTML = "";
-  let i=0;
-  const typing = setInterval(()=>{
-    if(i<text.length){
-      textEl.innerHTML += text.charAt(i);
-      i++;
-    } else { clearInterval(typing); }
-  },80);
-}
-
-document.querySelectorAll(".step").forEach(step=>{
-  step.addEventListener("click",()=>startTyping(step));
-});
 </script>
-</body>
 
+</body>
 </html>
